@@ -119,14 +119,6 @@
     margin: 0 0 18px;
     font-weight: 800;
   }
-  .hero h1 .en {
-    display: block;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-tertiary);
-    letter-spacing: 0.02em;
-    margin-top: 10px;
-  }
   .hero p.lede {
     font-size: 17px;
     color: var(--text-secondary);
@@ -233,13 +225,6 @@
     margin: 0 0 6px;
     font-size: 17px;
   }
-  .feature-card h3 .en {
-    display: block;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-tertiary);
-    margin-top: 2px;
-  }
   .feature-card p {
     margin: 0;
     font-size: 14px;
@@ -344,6 +329,59 @@
   footer a:hover { color: var(--amber); }
   .footer-links { display: flex; gap: 18px; }
 
+  /* ---------- Lang toggle ---------- */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--divider);
+    border-radius: 999px;
+    padding: 3px;
+  }
+  .lang-toggle button {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--text-tertiary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 5px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .lang-toggle button.active {
+    background: var(--amber);
+    color: #211D19;
+  }
+
+  /* ---------- Lang blocks ---------- */
+  .lang-zh, .lang-en { display: none; }
+  html[data-lang="zh"] .lang-zh { display: initial; }
+  html[data-lang="en"] .lang-en { display: initial; }
+  html[data-lang="zh"] li.lang-zh,
+  html[data-lang="zh"] p.lang-zh,
+  html[data-lang="zh"] div.lang-zh { display: block; }
+  html[data-lang="en"] li.lang-en,
+  html[data-lang="en"] p.lang-en,
+  html[data-lang="en"] div.lang-en { display: block; }
+  /* noscript / no-JS fallback: default to zh */
+  html:not([data-lang]) .lang-zh { display: initial; }
+  html:not([data-lang]) li.lang-zh,
+  html:not([data-lang]) p.lang-zh,
+  html:not([data-lang]) div.lang-zh { display: block; }
+  html:not([data-lang]) .lang-en { display: none; }
+  /* Screenshots swap with the language too. `.hero-figure img` declares
+     display:block, which out-specifies the bare .lang-* rules above —
+     these img-scoped rules win it back. */
+  img.lang-zh, img.lang-en { display: none; }
+  html[data-lang="zh"] img.lang-zh { display: block; }
+  html[data-lang="en"] img.lang-en { display: block; }
+  html:not([data-lang]) img.lang-zh { display: block; }
+  html:not([data-lang]) img.lang-en { display: none; }
+
   /* ---------- Responsive ---------- */
   @media (max-width: 760px) {
     .hero-grid { grid-template-columns: 1fr; }
@@ -355,6 +393,12 @@
     section { padding: 48px 0; }
     .support-card { padding: 26px; }
   }
+
+  @media (max-width: 560px) {
+    .nav .wrap { flex-wrap: wrap; gap: 8px 12px; }
+    .brand { font-size: 13px; }
+    .nav-links { gap: 12px; font-size: 13px; }
+  }
 </style>
 </head>
 <body>
@@ -363,9 +407,13 @@
   <div class="wrap">
     <a class="brand" href="#top">PAWNCH GYM</a>
     <div class="nav-links">
-      <a href="#features">功能</a>
-      <a href="#support">支援</a>
-      <a href="privacy.html">隱私</a>
+      <a href="#features"><span class="lang-zh">功能</span><span class="lang-en">Features</span></a>
+      <a href="#support"><span class="lang-zh">支援</span><span class="lang-en">Support</span></a>
+      <a href="privacy.html"><span class="lang-zh">隱私</span><span class="lang-en">Privacy</span></a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="zh">中</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
     </div>
   </div>
 </nav>
@@ -376,23 +424,32 @@
       <div>
         <div class="sign">PAWNCH GYM <span class="open">OPEN</span></div>
         <h1>
-          半夜也開著的拳館。
-          <span class="en">A boxing gym that stays open late.</span>
+          <span class="lang-zh">半夜也開著的拳館。</span>
+          <span class="lang-en">A boxing gym that stays open late.</span>
         </h1>
         <p class="lede">
-          Pawnch 是一個拳擊間歇計時器 app。貓咪館長 Miso 顧櫃檯，不推銷、不喊口號，只記得你有沒有來，也不會因為你沒來就唸你。
+          <span class="lang-zh">Pawnch 是一個拳擊間歇計時器 app。貓咪館長 Miso 顧櫃檯，不推銷、不喊口號，只記得你有沒有來，也不會因為你沒來就唸你。</span>
+          <span class="lang-en">Pawnch is a boxing interval timer app. Miso, the gym cat, mans the front desk — no sales pitch, no hype, just quietly keeping track of whether you showed up. And if you didn't, he won't lecture you about it.</span>
         </p>
         <div class="cta-row">
           <!-- TODO: 換成正式 App Store 連結 -->
           <a class="btn btn-primary" href="#">
-            下載 App Store
+            <span class="lang-zh">下載 App Store</span>
+            <span class="lang-en">Download on the App Store</span>
           </a>
-          <a class="btn btn-ghost" href="#features">看看拳館裡有什麼</a>
+          <a class="btn btn-ghost" href="#features">
+            <span class="lang-zh">看看拳館裡有什麼</span>
+            <span class="lang-en">See what's inside the gym</span>
+          </a>
         </div>
-        <p class="fineprint">iPhone only · iOS 17+ · 無帳號 · 無追蹤<span class="en">No account · No tracking</span></p>
+        <p class="fineprint">
+          <span class="lang-zh">iPhone only · iOS 17+ · 無帳號 · 無追蹤</span>
+          <span class="lang-en">iPhone only · iOS 17+ · No account · No tracking</span>
+        </p>
       </div>
       <div class="hero-figure">
-        <img src="assets/screen-home.png" alt="Pawnch 首頁截圖：Miso 在櫃檯打招呼，下方是課表卡片" loading="lazy">
+        <img class="lang-zh" src="assets/screen-home.png" alt="Pawnch 首頁截圖：Miso 在櫃檯打招呼，下方是課表卡片" loading="lazy">
+        <img class="lang-en" src="assets/screen-home-en.png" alt="Pawnch home screen: Miso greeting at the front desk, workout card below" loading="lazy">
       </div>
     </div>
   </div>
@@ -402,29 +459,47 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Features</div>
-      <h2>拳館裡有的東西</h2>
-      <p>沒有等級、沒有排行榜、沒有推播騷擾。就是一間你可以隨時進來打幾拳的地方。</p>
+      <h2>
+        <span class="lang-zh">拳館裡有的東西</span>
+        <span class="lang-en">What's in the gym</span>
+      </h2>
+      <p>
+        <span class="lang-zh">沒有等級、沒有排行榜、沒有推播騷擾。就是一間你可以隨時進來打幾拳的地方。</span>
+        <span class="lang-en">No levels, no leaderboards, no push notifications nagging you. Just a place you can walk into any time and throw a few punches.</span>
+      </p>
     </div>
     <div class="feature-grid">
       <div class="feature-card">
         <span class="icon">⏱️</span>
-        <h3>回合間歇計時<span class="en">Round Timer</span></h3>
-        <p>自訂回合數、時間、休息長度。準備、出拳、休息、收操——聲音跟震動會提醒你，不用一直盯螢幕。</p>
+        <h3><span class="lang-zh">回合間歇計時</span><span class="lang-en">Round Timer</span></h3>
+        <p>
+          <span class="lang-zh">自訂回合數、時間、休息長度。準備、出拳、休息、收操——聲音跟震動會提醒你，不用一直盯螢幕。</span>
+          <span class="lang-en">Set your own rounds, durations, and rest length. Get ready, throw punches, rest, cool down — sound and vibration cue every phase, so you never have to stare at the screen.</span>
+        </p>
       </div>
       <div class="feature-card">
         <span class="icon">🐾</span>
-        <h3>出席簿<span class="en">Attendance Log</span></h3>
-        <p>每次練完蓋一枚出席章。不是連續打卡壓力，只是老實記錄你這個月來了幾個晚上。</p>
+        <h3><span class="lang-zh">出席簿</span><span class="lang-en">Attendance Log</span></h3>
+        <p>
+          <span class="lang-zh">每次練完蓋一枚出席章。不是連續打卡壓力，只是老實記錄你這個月來了幾個晚上。</span>
+          <span class="lang-en">Every session stamps your attendance log. No streak pressure — just an honest record of how many nights you showed up this month.</span>
+        </p>
       </div>
       <div class="feature-card">
         <span class="icon">🐱</span>
-        <h3>Miso 顧櫃檯<span class="en">Miso, the Gym Cat</span></h3>
-        <p>撲克臉、半睡半醒、講話不多。會依時段、依你多久沒來，換一句招呼——僅止於此，不推銷。</p>
+        <h3><span class="lang-zh">Miso 顧櫃檯</span><span class="lang-en">Miso, the Gym Cat</span></h3>
+        <p>
+          <span class="lang-zh">撲克臉、半睡半醒、講話不多。會依時段、依你多久沒來，換一句招呼——僅止於此，不推銷。</span>
+          <span class="lang-en">Poker-faced, half-asleep, a cat of few words. His greeting changes with the time of day and how long you've been away — that's it, no sales pitch attached.</span>
+        </p>
       </div>
       <div class="feature-card">
         <span class="icon">📌</span>
-        <h3>收藏櫃 &amp; 留言板<span class="en">Collection &amp; Message Board</span></h3>
-        <p>常來會慢慢解鎖拳館裡的舊物件；留言板是 Miso 隨手貼的紙條，有空再翻，不是通知中心。</p>
+        <h3><span class="lang-zh">收藏櫃 &amp; 留言板</span><span class="lang-en">Collection &amp; Message Board</span></h3>
+        <p>
+          <span class="lang-zh">常來會慢慢解鎖拳館裡的舊物件；留言板是 Miso 隨手貼的紙條，有空再翻，不是通知中心。</span>
+          <span class="lang-en">Keep coming back and you'll slowly unlock old gym relics. The message board is just notes Miso leaves lying around — flip through when you feel like it, it's not a notification center.</span>
+        </p>
       </div>
     </div>
   </div>
@@ -434,17 +509,31 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Inside the Gym</div>
-      <h2>拳館長這樣</h2>
-      <p>深色拳館主題，深夜躺著看螢幕也不刺眼。</p>
+      <h2>
+        <span class="lang-zh">拳館長這樣</span>
+        <span class="lang-en">A look inside</span>
+      </h2>
+      <p>
+        <span class="lang-zh">深色拳館主題，深夜躺著看螢幕也不刺眼。</span>
+        <span class="lang-en">A dark gym theme, easy on the eyes even lying in bed at 2am.</span>
+      </p>
     </div>
     <div class="showcase-grid">
       <figure>
-        <img src="assets/screen-home.png" alt="首頁：Miso 打招呼與課表卡" loading="lazy">
-        <figcaption>拳館首頁 — 今天想打幾回合</figcaption>
+        <img class="lang-zh" src="assets/screen-home.png" alt="首頁：Miso 打招呼與課表卡" loading="lazy">
+        <img class="lang-en" src="assets/screen-home-en.png" alt="Gym home: Miso's greeting and workout cards" loading="lazy">
+        <figcaption>
+          <span class="lang-zh">拳館首頁 — 今天想打幾回合</span>
+          <span class="lang-en">Gym home — how many rounds today</span>
+        </figcaption>
       </figure>
       <figure>
-        <img src="assets/screen-collection.png" alt="收藏櫃：舊拳套、頭帶等常來解鎖的物件" loading="lazy">
-        <figcaption>收藏櫃 — 常來的人才有位置</figcaption>
+        <img class="lang-zh" src="assets/screen-collection.png" alt="收藏櫃：舊拳套、頭帶等常來解鎖的物件" loading="lazy">
+        <img class="lang-en" src="assets/screen-collection-en.png" alt="Collection: old gloves, headband and other show-up unlocks" loading="lazy">
+        <figcaption>
+          <span class="lang-zh">收藏櫃 — 常來的人才有位置</span>
+          <span class="lang-en">Collection — a shelf reserved for regulars</span>
+        </figcaption>
       </figure>
     </div>
   </div>
@@ -454,15 +543,26 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Honest Facts</div>
-      <h2>老實說清楚</h2>
-      <p>這是一個工具 app，不是要留住你的產品。以下是它實際上會（不會）做的事。</p>
+      <h2>
+        <span class="lang-zh">老實說清楚</span>
+        <span class="lang-en">The honest facts</span>
+      </h2>
+      <p>
+        <span class="lang-zh">這是一個工具 app，不是要留住你的產品。以下是它實際上會（不會）做的事。</span>
+        <span class="lang-en">This is a tool, not a product designed to hook you. Here's exactly what it does — and doesn't do.</span>
+      </p>
     </div>
     <ul class="fact-list">
-      <li><b>無帳號、無登入。</b>打開就能用，不用註冊、不用綁 email。</li>
-      <li><b>無追蹤 SDK。</b>沒有第三方分析，沒有人在看你怎麼用這個 app。</li>
-      <li><b>資料只在你的手機裡。</b>不上傳、不備份到我們的伺服器（我們也沒有伺服器）。</li>
-      <li><b>繁體中文＋英文。</b>雙語呈現，介面文字不會忽然切語言。</li>
-      <li><b>下載免費，唯一的內購是自願打賞。</b>「請 Miso 吃罐罐」——付款全部經過 Apple StoreKit，我們不經手你的付款資訊。</li>
+      <li class="lang-zh"><b>無帳號、無登入。</b>打開就能用，不用註冊、不用綁 email。</li>
+      <li class="lang-en"><b>No account, no login.</b> Open the app and go — no sign-up, no email required.</li>
+      <li class="lang-zh"><b>無追蹤 SDK。</b>沒有第三方分析，沒有人在看你怎麼用這個 app。</li>
+      <li class="lang-en"><b>No tracking SDKs.</b> No third-party analytics — nobody's watching how you use this app.</li>
+      <li class="lang-zh"><b>資料只在你的手機裡。</b>不上傳、不備份到我們的伺服器（我們也沒有伺服器）。</li>
+      <li class="lang-en"><b>Your data stays on your phone.</b> Nothing is uploaded or backed up to our servers — because we don't have any.</li>
+      <li class="lang-zh"><b>繁體中文＋英文。</b>右上角可切換語言，選定後介面文字不會忽然跳來跳去。</li>
+      <li class="lang-en"><b>Traditional Chinese + English.</b> Pick a language and the whole interface sticks with it — no mid-sentence switching.</li>
+      <li class="lang-zh"><b>下載免費，唯一的內購是自願打賞。</b>「請 Miso 吃罐罐」——付款全部經過 Apple StoreKit，我們不經手你的付款資訊。</li>
+      <li class="lang-en"><b>Free to download, the only IAP is an optional tip.</b> "Treat Miso to a Can" — all payments go through Apple StoreKit, and we never handle your payment info.</li>
     </ul>
   </div>
 </section>
@@ -471,8 +571,14 @@
   <div class="wrap">
     <div class="support-card">
       <div>
-        <h2>需要幫忙？</h2>
-        <p>App 有問題、有建議，或單純想告訴我們 Miso 講了什麼好笑的話，都歡迎寫信來。</p>
+        <h2>
+          <span class="lang-zh">需要幫忙？</span>
+          <span class="lang-en">Need a hand?</span>
+        </h2>
+        <p>
+          <span class="lang-zh">App 有問題、有建議，或單純想告訴我們 Miso 講了什麼好笑的話，都歡迎寫信來。</span>
+          <span class="lang-en">Got a bug, a suggestion, or just want to tell us the funniest thing Miso said — drop us a line.</span>
+        </p>
       </div>
       <a class="btn btn-primary" href="mailto:yi@honulab.com">yi@honulab.com</a>
     </div>
@@ -483,11 +589,38 @@
   <div class="wrap">
     <div>© 2026 Honu Lab. All rights reserved.</div>
     <div class="footer-links">
-      <a href="privacy.html">隱私政策 Privacy Policy</a>
-      <a href="mailto:yi@honulab.com">聯絡我們</a>
+      <a href="privacy.html"><span class="lang-zh">隱私政策</span><span class="lang-en">Privacy Policy</span></a>
+      <a href="mailto:yi@honulab.com"><span class="lang-zh">聯絡我們</span><span class="lang-en">Contact Us</span></a>
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var KEY = 'pawnchLang';
+  var html = document.documentElement;
+  function detect() {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'zh' || saved === 'en') return saved;
+    return (navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+  }
+  function apply(lang) {
+    html.setAttribute('data-lang', lang);
+    html.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en');
+    document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+    });
+  }
+  apply(detect());
+  document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var lang = btn.getAttribute('data-lang-btn');
+      localStorage.setItem(KEY, lang);
+      apply(lang);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
