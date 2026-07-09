@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press Kit — Pawnch Gym</title>
+<meta name="description" content="Pawnch Gym press kit：app icon、6.9&quot; 商店截圖、fact sheet 與中英文 pitch，供媒體與 Apple featuring 提名使用。">
+
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pawnch.honulab.com/press.html">
+<meta property="og:title" content="Press Kit — Pawnch Gym">
+<meta property="og:description" content="Pawnch Gym press kit：app icon、6.9&quot; 商店截圖、fact sheet 與中英文 pitch，供媒體與 Apple featuring 提名使用。">
+<meta property="og:image" content="https://pawnch.honulab.com/assets/og-card.png">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Press Kit — Pawnch Gym">
+<meta name="twitter:description" content="Pawnch Gym press kit：app icon、6.9&quot; 商店截圖、fact sheet 與中英文 pitch，供媒體與 Apple featuring 提名使用。">
+<meta name="twitter:image" content="https://pawnch.honulab.com/assets/og-card.png">
+
+<style>
+  :root{
+    --bg-base: #11151C;
+    --bg-elevated: #211D19;
+    --bg-card: #2A2522;
+    --amber: #E5A63E;
+    --amber-deep: #C98727;
+    --neon-pink: #FF3D9A;
+    --neon-blue: #4DA6FF;
+    --text-primary: #F4F1EC;
+    --text-secondary: #B8B3AA;
+    --text-tertiary: #948F86;
+    --divider: #3A342C;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--amber); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(17, 21, 28, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--divider);
+  }
+  .nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .brand {
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    font-size: 16px;
+    color: var(--neon-pink);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 16px;
+  }
+  .nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+  .nav-links a:hover { color: var(--amber); }
+  .nav-links a { position: relative; }
+  /* Invisible 44x44 hit-slop: expands the tap target without affecting
+     visual size/background (important for .lang-toggle button, whose
+     background fills the padding box — real padding would visibly grow
+     the active pill). */
+  .nav-links a::after,
+  .lang-toggle button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    min-width: 44px;
+    min-height: 44px;
+    transform: translate(-50%, -50%);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 64px 0 48px;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(229,166,62,0.10), transparent),
+      linear-gradient(180deg, var(--bg-base) 0%, var(--bg-base) 100%);
+    border-bottom: 1px solid var(--divider);
+  }
+  .eyebrow-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    color: var(--neon-pink);
+    text-shadow: 0 0 14px rgba(255,61,154,0.45);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 34px;
+    line-height: 1.3;
+    margin: 0 0 10px;
+    font-weight: 800;
+  }
+  .hero .tagline-sub {
+    font-size: 19px;
+    color: var(--text-secondary);
+    margin: 0 0 26px;
+    max-width: 52ch;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--divider);
+    background: var(--bg-elevated);
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 56px 0; border-top: 1px solid var(--divider); }
+  .section-head { margin-bottom: 30px; max-width: 64ch; }
+  .section-head .eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .section-head h2 { font-size: 24px; margin: 0 0 8px; }
+  .section-head p { color: var(--text-secondary); margin: 0; font-size: 17px; }
+
+  /* ---------- Pitch ---------- */
+  .pitch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .pitch-card {
+    background: var(--bg-card);
+    border: 1px solid var(--divider);
+    border-radius: 20px;
+    padding: 26px 28px;
+  }
+  .pitch-card .lang-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+  }
+  .pitch-card p {
+    margin: 0;
+    font-size: 17px;
+    color: var(--text-primary);
+  }
+
+  /* ---------- Icon + downloads ---------- */
+  .icon-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    align-items: center;
+  }
+  .icon-row img {
+    width: 128px;
+    height: 128px;
+    border-radius: 28px;
+    border: 1px solid var(--divider);
+    box-shadow: 0 20px 40px -16px rgba(0,0,0,0.6);
+    display: block;
+  }
+  .icon-meta p {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: var(--text-secondary);
+  }
+  .dl-links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .dl-links a {
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--amber);
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    padding: 8px 14px;
+  }
+  .dl-links a:hover { border-color: var(--amber); }
+
+  /* ---------- Screenshot grid ---------- */
+  .shot-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .shot-grid figure {
+    margin: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--divider);
+    border-radius: 16px;
+    padding: 12px;
+    text-align: center;
+  }
+  .shot-grid a { display: block; }
+  .shot-grid img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--divider);
+    display: block;
+  }
+  .shot-grid figcaption {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
+
+  /* ---------- Fact sheet ---------- */
+  .fact-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border: 1px solid var(--divider);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .fact-table tr + tr td { border-top: 1px solid var(--divider); }
+  .fact-table td {
+    padding: 16px 22px;
+    font-size: 16px;
+    color: var(--text-secondary);
+    vertical-align: top;
+  }
+  .fact-table td:first-child {
+    width: 34%;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-card {
+    background: linear-gradient(180deg, var(--bg-card), var(--bg-elevated));
+    border: 1px solid var(--divider);
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .contact-card h2 { margin: 0 0 8px; font-size: 20px; }
+  .contact-card p { margin: 0; color: var(--text-secondary); font-size: 16px; max-width: 46ch; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    background: var(--amber);
+    color: #211D19;
+  }
+  .btn:hover { background: var(--amber-deep); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--divider);
+    padding: 32px 0 48px;
+  }
+  footer .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--text-tertiary);
+  }
+  footer a { color: var(--text-tertiary); text-decoration: underline; }
+  footer a:hover { color: var(--amber); }
+  .footer-links { display: flex; gap: 18px; }
+
+  /* ---------- Lang toggle ---------- */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--divider);
+    border-radius: 999px;
+    padding: 3px;
+  }
+  .lang-toggle button {
+    position: relative;
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--text-tertiary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 5px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .lang-toggle button.active { background: var(--amber); color: #211D19; }
+
+  /* ---------- Lang blocks ---------- */
+  .lang-zh, .lang-en { display: none; }
+  html[data-lang="zh"] .lang-zh { display: initial; }
+  html[data-lang="en"] .lang-en { display: initial; }
+  html[data-lang="zh"] li.lang-zh,
+  html[data-lang="zh"] p.lang-zh,
+  html[data-lang="zh"] div.lang-zh,
+  html[data-lang="zh"] tr.lang-zh { display: block; }
+  html[data-lang="en"] li.lang-en,
+  html[data-lang="en"] p.lang-en,
+  html[data-lang="en"] div.lang-en,
+  html[data-lang="en"] tr.lang-en { display: block; }
+  html[data-lang="zh"] tr.lang-zh { display: table-row; }
+  html[data-lang="en"] tr.lang-en { display: table-row; }
+  /* noscript / no-JS fallback: default to zh */
+  html:not([data-lang]) .lang-zh { display: initial; }
+  html:not([data-lang]) li.lang-zh,
+  html:not([data-lang]) p.lang-zh,
+  html:not([data-lang]) div.lang-zh { display: block; }
+  html:not([data-lang]) tr.lang-zh { display: table-row; }
+  html:not([data-lang]) .lang-en { display: none; }
+  html:not([data-lang]) tr.lang-en { display: none; }
+  /* .shot-grid declares display:grid, which the bare .lang-* rules above
+     out-specify — these grid-scoped rules win it back (same pattern the
+     homepage uses for img.lang-zh/img.lang-en). */
+  html[data-lang="zh"] .shot-grid.lang-zh { display: grid; }
+  html[data-lang="en"] .shot-grid.lang-en { display: grid; }
+  html:not([data-lang]) .shot-grid.lang-zh { display: grid; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 760px) {
+    .pitch-grid { grid-template-columns: 1fr; }
+    .shot-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 { font-size: 26px; }
+    section { padding: 44px 0; }
+    .contact-card { padding: 26px; }
+    .fact-table td:first-child { width: 42%; white-space: normal; }
+  }
+  @media (max-width: 560px) {
+    .nav .wrap { flex-wrap: wrap; gap: 8px 12px; }
+    .brand { font-size: 14px; }
+    .nav-links { gap: 12px; font-size: 14px; }
+    .shot-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+<link rel="canonical" href="https://pawnch.honulab.com/press.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://pawnch.honulab.com/press.html">
+<link rel="alternate" hreflang="en" href="https://pawnch.honulab.com/en/press.html">
+<link rel="alternate" hreflang="x-default" href="https://pawnch.honulab.com/press.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">PAWNCH GYM</a>
+    <div class="nav-links">
+      <a href="index.html"><span class="lang-zh">回首頁</span><span class="lang-en">Back to Home</span></a>
+      <a href="privacy.html"><span class="lang-zh">隱私</span><span class="lang-en">Privacy</span></a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="zh">中</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow-tag">PRESS KIT</div>
+    <h1>
+      <span class="lang-zh">一間記得你有沒有來的拳館</span>
+      <span class="lang-en">It remembers if you came.</span>
+    </h1>
+    <p class="tagline-sub">
+      <span class="lang-zh">不會罵你沒來的那種。</span>
+      <span class="lang-en">Never nags if you didn't.</span>
+    </p>
+    <div class="hero-meta">
+      <span class="pill"><span class="lang-zh">開發者：Honu Lab</span><span class="lang-en">Developer: Honu Lab</span></span>
+      <span class="pill">iOS 17+ · iPhone only</span>
+      <span class="pill"><span class="lang-zh">聯絡：yi@honulab.com</span><span class="lang-en">Contact: yi@honulab.com</span></span>
+    </div>
+  </div>
+</header>
+
+<section id="pitch">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pitch</div>
+      <h2><span class="lang-zh">app 簡介</span><span class="lang-en">App overview</span></h2>
+      <p>
+        <span class="lang-zh">摘自官方 App Store 文案，供報導或介紹直接引用。</span>
+        <span class="lang-en">Condensed from the official App Store description — free to quote directly.</span>
+      </p>
+    </div>
+    <div class="pitch-grid">
+      <div class="pitch-card">
+        <div class="lang-label">中文</div>
+        <p>Pawnch 是一款拳擊間歇計時器，館長是一隻叫 Miso 的橘白貓。他會記得你有沒有來練，但不會逼你、不會扣分，也不會在你休息一天後跳出來碎念，只是安靜開著燈等你進門。同樣適合居家 HIIT、有氧格鬥與循環訓練，回合鈴聲鎖屏也照響。</p>
+      </div>
+      <div class="pitch-card">
+        <div class="lang-label">English</div>
+        <p>Pawnch is a boxing interval timer run by Miso, an orange-and-white gym cat who's a little lazy, a little messy, and always remembers whether you showed up. Miso doesn't nag, doesn't dock points, and won't guilt-trip you over a broken streak — the lights are just always on, waiting for you to walk in. Built for boxing, kickboxing, and home HIIT, Pawnch keeps the round bell ringing even when the screen is locked, with no account, no login, and no tracking required to train.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="icon">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">App Icon</div>
+      <h2><span class="lang-zh">app 圖示</span><span class="lang-en">App icon</span></h2>
+    </div>
+    <div class="icon-row">
+      <img src="assets/app-icon-1024.png" alt="Pawnch app icon" loading="lazy">
+      <div class="icon-meta">
+        <p><span class="lang-zh">1024×1024 px，PNG，可直接下載使用。</span><span class="lang-en">1024×1024 px PNG, ready to download and use.</span></p>
+        <div class="dl-links">
+          <a href="assets/app-icon-1024.png" download>
+            <span class="lang-zh">下載原圖</span><span class="lang-en">Download original</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="screenshots">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Screenshots</div>
+      <h2><span class="lang-zh">商店截圖</span><span class="lang-en">Store screenshots</span></h2>
+      <p>
+        <span class="lang-zh">6.9" 顯示尺寸（1320×2868），iPhone 16 Pro Max。點圖可開啟原圖，右鍵另存即可下載。</span>
+        <span class="lang-en">6.9" display size (1320×2868), iPhone 16 Pro Max. Click to open full-size; right-click to save.</span>
+      </p>
+    </div>
+
+    <div class="lang-zh" style="margin-bottom:16px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);">繁體中文</div>
+    <div class="lang-en" style="margin-bottom:16px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);">English (US)</div>
+
+    <div class="shot-grid lang-zh">
+      <figure>
+        <a href="assets/press/zh-Hant/01-home-tagline.png" target="_blank"><img src="assets/press/zh-Hant/01-home-tagline.png" alt="首頁：Miso 打招呼與定位標語" loading="lazy"></a>
+        <figcaption>01 · 首頁</figcaption>
+      </figure>
+      <figure>
+        <a href="assets/press/zh-Hant/02-workout.png" target="_blank"><img src="assets/press/zh-Hant/02-workout.png" alt="訓練中畫面：回合計時器" loading="lazy"></a>
+        <figcaption>02 · 訓練中</figcaption>
+      </figure>
+      <figure>
+        <a href="assets/press/zh-Hant/03-attendance.png" target="_blank"><img src="assets/press/zh-Hant/03-attendance.png" alt="出席簿畫面" loading="lazy"></a>
+        <figcaption>03 · 出席簿</figcaption>
+      </figure>
+      <figure>
+        <a href="assets/press/zh-Hant/04-collection.png" target="_blank"><img src="assets/press/zh-Hant/04-collection.png" alt="收藏櫃畫面" loading="lazy"></a>
+        <figcaption>04 · 收藏櫃</figcaption>
+      </figure>
+      <figure>
+        <a href="assets/press/zh-Hant/05-messages.png" target="_blank"><img src="assets/press/zh-Hant/05-messages.png" alt="留言板畫面" loading="lazy"></a>
+        <figcaption>05 · 留言板</figcaption>
+      </figure>
+    </div>
+
+    <div class="shot-grid lang-en">
+      <figure>
+        <a href="assets/press/en-US/01-home-tagline.png" target="_blank"><img src="assets/press/en-US/01-home-tagline.png" alt="Home screen: Miso's greeting with tagline" loading="lazy"></a>
+        <figcaption>01 · Home</figcaption>
+      </figure>
+      <figure>
+        <a href="assets/press/en-US/02-workout.png" target="_blank"><img src="assets/press/en-US/02-workout.png" alt="Active workout: round timer" loading="lazy"></a>
+        <figcaption>02 · Workout</figcaption>
+      </figure>
+      <figure>
+        <a href="assets/press/en-US/03-attendance.png" target="_blank"><img src="assets/press/en-US/03-attendance.png" alt="Attendance log screen" loading="lazy"></a>
+        <figcaption>03 · Attendance</figcaption>
+      </figure>
+      <figure>
+        <a href="assets/press/en-US/04-collection.png" target="_blank"><img src="assets/press/en-US/04-collection.png" alt="Collection screen" loading="lazy"></a>
+        <figcaption>04 · Collection</figcaption>
+      </figure>
+      <figure>
+        <a href="assets/press/en-US/05-messages.png" target="_blank"><img src="assets/press/en-US/05-messages.png" alt="Message board screen" loading="lazy"></a>
+        <figcaption>05 · Messages</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="facts">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Fact Sheet</div>
+      <h2><span class="lang-zh">基本資料</span><span class="lang-en">Fact sheet</span></h2>
+    </div>
+    <table class="fact-table">
+      <tbody>
+        <tr>
+          <td><span class="lang-zh">平台</span><span class="lang-en">Platform</span></td>
+          <td>iOS 17+ · <span class="lang-zh">iPhone only</span><span class="lang-en">iPhone only</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-zh">價格</span><span class="lang-en">Price</span></td>
+          <td>
+            <span class="lang-zh">下載免費，唯一內購是自願打賞（非訂閱）</span>
+            <span class="lang-en">Free to download; the only in-app purchase is an optional tip (not a subscription)</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="lang-zh">隱私</span><span class="lang-en">Privacy</span></td>
+          <td>
+            <span class="lang-zh">Data Not Collected（App Privacy 標示）</span>
+            <span class="lang-en">Data Not Collected (App Privacy label)</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="lang-zh">開發者</span><span class="lang-en">Developer</span></td>
+          <td>Honu Lab</td>
+        </tr>
+        <tr>
+          <td><span class="lang-zh">聯絡方式</span><span class="lang-en">Contact</span></td>
+          <td><a href="mailto:yi@honulab.com">yi@honulab.com</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2><span class="lang-zh">媒體聯絡</span><span class="lang-en">Media contact</span></h2>
+        <p>
+          <span class="lang-zh">採訪、素材需求或 featuring 提名相關問題，歡迎直接來信。</span>
+          <span class="lang-en">For interviews, extra assets, or coverage inquiries, reach out directly.</span>
+        </p>
+      </div>
+      <a class="btn" href="mailto:yi@honulab.com">yi@honulab.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Honu Lab. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="index.html"><span class="lang-zh">回首頁</span><span class="lang-en">Back to Home</span></a>
+      <a href="privacy.html"><span class="lang-zh">隱私政策</span><span class="lang-en">Privacy Policy</span></a>
+      <a href="mailto:yi@honulab.com"><span class="lang-zh">聯絡我們</span><span class="lang-en">Contact Us</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var KEY = 'pawnchLang';
+  var html = document.documentElement;
+  var META = {
+    zh: {
+      title: 'Press Kit — Pawnch Gym',
+      description: 'Pawnch Gym press kit：app icon、6.9" 商店截圖、fact sheet 與中英文 pitch，供媒體與 Apple featuring 提名使用。'
+    },
+    en: {
+      title: 'Press Kit — Pawnch Gym',
+      description: "Pawnch is a boxing interval timer run by Miso, an orange-and-white gym cat who's a little lazy, a little messy, and always remembers whether you showed up."
+    }
+  };
+  function detect() {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'zh' || saved === 'en') return saved;
+    return (navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+  }
+  function apply(lang) {
+    html.setAttribute('data-lang', lang);
+    html.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en');
+    document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+    });
+    var meta = META[lang] || META.zh;
+    document.title = meta.title;
+    var descEl = document.querySelector('meta[name="description"]');
+    if (descEl) descEl.setAttribute('content', meta.description);
+  }
+  apply(detect());
+  document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var lang = btn.getAttribute('data-lang-btn');
+      localStorage.setItem(KEY, lang);
+      apply(lang);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
