@@ -541,11 +541,10 @@
           <span class="lang-en">Pawnch is a boxing interval timer app. Miso, the gym cat, mans the front desk — no pouncing to upsell you, no hype, just quietly keeping track of whether you showed up — and won't lecture you if you didn't.</span>
         </p>
         <div class="cta-row">
-          <!-- TODO: 上架後把下面的停用按鈕換回正式 App Store 連結 -->
-          <span class="btn btn-primary btn-disabled" aria-disabled="true">
-            <span class="lang-zh">App Store・即將上架</span>
-            <span class="lang-en">App Store — coming soon</span>
-          </span>
+          <a class="btn btn-primary" href="https://apps.apple.com/us/app/pawnch-boxing-round-timer/id6783594091">
+            <span class="lang-zh">在 App Store 下載</span>
+            <span class="lang-en">Download on the App Store</span>
+          </a>
           <a class="btn btn-ghost" href="#features">
             <span class="lang-zh">看看拳館裡有什麼</span>
             <span class="lang-en">See what's inside the gym</span>
@@ -671,8 +670,8 @@
         </figcaption>
       </figure>
       <figure class="showcase-video">
-        <video class="lang-zh" src="assets/showcase-workout-zh.mp4" poster="assets/showcase-workout-zh-poster.jpg" autoplay muted loop playsinline></video>
-        <video class="lang-en" src="assets/showcase-workout-en.mp4" poster="assets/showcase-workout-en-poster.jpg" autoplay muted loop playsinline></video>
+        <video class="lang-zh" data-src="assets/showcase-workout-zh.mp4" poster="assets/showcase-workout-zh-poster.jpg" muted loop playsinline></video>
+        <video class="lang-en" data-src="assets/showcase-workout-en.mp4" poster="assets/showcase-workout-en-poster.jpg" muted loop playsinline></video>
         <figcaption>
           <span class="lang-zh">出拳中 — Miso 陪你打完這回合</span>
           <span class="lang-en">Mid-round — Miso's with you through the round</span>
@@ -756,6 +755,31 @@
     if (saved === 'zh' || saved === 'en') return saved;
     return (navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
   }
+  function updateVideos(lang) {
+    // Both lang-zh / lang-en <video> tags carry data-src instead of src so
+    // neither downloads on page load. Only the active language's video gets
+    // its src filled in (and playback started); the inactive one is paused
+    // and its src cleared so display:none doesn't leave it silently
+    // buffering/downloading in the background.
+    document.querySelectorAll('video[data-src]').forEach(function (video) {
+      var isActive = video.classList.contains('lang-' + lang);
+      if (isActive) {
+        if (video.getAttribute('src') !== video.dataset.src) {
+          video.setAttribute('src', video.dataset.src);
+        }
+        var playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function () {});
+        }
+      } else {
+        video.pause();
+        if (video.hasAttribute('src')) {
+          video.removeAttribute('src');
+          video.load();
+        }
+      }
+    });
+  }
   function apply(lang) {
     html.setAttribute('data-lang', lang);
     html.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en');
@@ -766,6 +790,7 @@
     document.title = meta.title;
     var descEl = document.querySelector('meta[name="description"]');
     if (descEl) descEl.setAttribute('content', meta.description);
+    updateVideos(lang);
   }
   apply(detect());
   document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
