@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>隱私政策 Privacy Policy — Pawnch Gym</title>
 <meta name="description" content="Pawnch 隱私政策：app 不收集任何資料，所有資料只存在裝置本地，無帳號、無追蹤。">
+<meta name="pawnch:title:zh" content="隱私政策 Privacy Policy — Pawnch Gym">
+<meta name="pawnch:description:zh" content="Pawnch 隱私政策：app 不收集任何資料，所有資料只存在裝置本地，無帳號、無追蹤。">
+<meta name="pawnch:title:en" content="Privacy Policy — Pawnch Gym">
+<meta name="pawnch:description:en" content="Pawnch does not collect any data from you. There is no account system, no backend server, and no analytics or tracking code. Everything you create in the app stays on your own iPhone.">
 
 <link rel="icon" href="assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
@@ -25,200 +29,7 @@
 <meta name="twitter:description" content="Pawnch 隱私政策：app 不收集任何資料，所有資料只存在裝置本地，無帳號、無追蹤。">
 <meta name="twitter:image" content="https://pawnch.honulab.com/assets/og-card.png">
 
-<style>
-  :root{
-    --bg-base: #11151C;
-    --bg-elevated: #211D19;
-    --bg-card: #2A2522;
-    --amber: #E5A63E;
-    --amber-deep: #C98727;
-    --neon-pink: #FF3D9A;
-    --text-primary: #F4F1EC;
-    --text-secondary: #B8B3AA;
-    --text-tertiary: #948F86;
-    --divider: #3A342C;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg-base);
-    color: var(--text-primary);
-    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.7;
-    font-size: 17px;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: var(--amber); }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(17, 21, 28, 0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--divider);
-  }
-  .nav .wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    max-width: 760px;
-  }
-  .brand {
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    font-size: 16px;
-    color: var(--neon-pink);
-    text-decoration: none;
-  }
-  .nav-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 16px;
-  }
-  .nav-links a:hover { color: var(--amber); }
-  .nav-links a { position: relative; }
-  /* Invisible 44x44 hit-slop: expands the tap target without affecting
-     visual size/background (important for .lang-toggle button, whose
-     background fills the padding box — real padding would visibly grow
-     the active pill). */
-  .nav-links a::after,
-  .lang-toggle button::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    min-width: 44px;
-    min-height: 44px;
-    transform: translate(-50%, -50%);
-  }
-
-  main { padding: 56px 0 72px; }
-
-  h1 {
-    font-size: 28px;
-    margin: 0 0 6px;
-  }
-  .subtitle {
-    color: var(--text-tertiary);
-    font-size: 15px;
-    margin: 0 0 40px;
-  }
-
-  .summary-box {
-    background: var(--bg-card);
-    border: 1px solid var(--divider);
-    border-radius: 18px;
-    padding: 24px 28px;
-    margin-bottom: 40px;
-  }
-  .summary-box p {
-    margin: 0;
-    font-size: 17px;
-    color: var(--text-primary);
-  }
-  .summary-box p + p { margin-top: 10px; }
-
-  h2 {
-    font-size: 18px;
-    margin: 40px 0 12px;
-    padding-top: 8px;
-    border-top: 1px solid var(--divider);
-  }
-  h2:first-of-type { border-top: none; padding-top: 0; }
-
-  p, li { color: var(--text-secondary); font-size: 17px; }
-  ul { padding-left: 20px; }
-  li + li { margin-top: 6px; }
-
-  .contact {
-    background: var(--bg-elevated);
-    border: 1px solid var(--divider);
-    border-radius: 18px;
-    padding: 22px 26px;
-    margin-top: 40px;
-  }
-  .contact p { margin: 0; color: var(--text-primary); }
-  .contact a { font-weight: 700; }
-
-  footer {
-    border-top: 1px solid var(--divider);
-    padding: 32px 0 48px;
-  }
-  footer .wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 14px;
-    color: var(--text-tertiary);
-    max-width: 760px;
-  }
-  footer a { color: var(--text-tertiary); text-decoration: underline; }
-  footer a:hover { color: var(--amber); }
-
-  /* ---------- Lang toggle ---------- */
-  .lang-toggle {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    background: var(--bg-elevated);
-    border: 1px solid var(--divider);
-    border-radius: 999px;
-    padding: 3px;
-  }
-  .lang-toggle button {
-    position: relative;
-    appearance: none;
-    border: none;
-    background: transparent;
-    color: var(--text-tertiary);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    padding: 5px 11px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-family: inherit;
-  }
-  .lang-toggle button.active {
-    background: var(--amber);
-    color: #211D19;
-  }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  /* ---------- Lang blocks ---------- */
-  .lang-zh, .lang-en { display: none; }
-  html[data-lang="zh"] .lang-zh { display: initial; }
-  html[data-lang="en"] .lang-en { display: initial; }
-  html[data-lang="zh"] li.lang-zh,
-  html[data-lang="zh"] p.lang-zh,
-  html[data-lang="zh"] div.lang-zh { display: block; }
-  html[data-lang="en"] li.lang-en,
-  html[data-lang="en"] p.lang-en,
-  html[data-lang="en"] div.lang-en { display: block; }
-  /* noscript / no-JS fallback: default to zh */
-  html:not([data-lang]) .lang-zh { display: initial; }
-  html:not([data-lang]) li.lang-zh,
-  html:not([data-lang]) p.lang-zh,
-  html:not([data-lang]) div.lang-zh { display: block; }
-  html:not([data-lang]) .lang-en { display: none; }
-
-  @media (max-width: 600px) {
-    main { padding: 40px 0 56px; }
-    h1 { font-size: 24px; }
-  }
-</style>
+<link rel="stylesheet" href="assets/privacy.css">
 <link rel="canonical" href="https://pawnch.honulab.com/privacy.html">
 <link rel="alternate" hreflang="zh-Hant" href="https://pawnch.honulab.com/privacy.html">
 <link rel="alternate" hreflang="en" href="https://pawnch.honulab.com/en/privacy.html">
@@ -309,46 +120,7 @@
   </div>
 </footer>
 
-<script>
-(function () {
-  var KEY = 'pawnchLang';
-  var html = document.documentElement;
-  var META = {
-    zh: {
-      title: '隱私政策 Privacy Policy — Pawnch Gym',
-      description: 'Pawnch 隱私政策：app 不收集任何資料，所有資料只存在裝置本地，無帳號、無追蹤。'
-    },
-    en: {
-      title: 'Privacy Policy — Pawnch Gym',
-      description: 'Pawnch does not collect any data from you. There is no account system, no backend server, and no analytics or tracking code. Everything you create in the app stays on your own iPhone.'
-    }
-  };
-  function detect() {
-    var saved = localStorage.getItem(KEY);
-    if (saved === 'zh' || saved === 'en') return saved;
-    return (navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
-  }
-  function apply(lang) {
-    html.setAttribute('data-lang', lang);
-    html.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en');
-    document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
-      btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
-    });
-    var meta = META[lang] || META.zh;
-    document.title = meta.title;
-    var descEl = document.querySelector('meta[name="description"]');
-    if (descEl) descEl.setAttribute('content', meta.description);
-  }
-  apply(detect());
-  document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var lang = btn.getAttribute('data-lang-btn');
-      localStorage.setItem(KEY, lang);
-      apply(lang);
-    });
-  });
-})();
-</script>
+<script src="assets/site.js" defer></script>
 
 </body>
 </html>
