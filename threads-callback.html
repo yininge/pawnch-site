@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Unlisted OAuth relay for the internal Threads tool (Pawnch Miso Patrol).
+     Meta requires an HTTPS redirect URI; this page forwards ?code/&state to the
+     local review console. It only ever forwards to the fixed localhost URL below. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Returning to Pawnch tool</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #15120f; color: #f3e9dc; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; }
+  main { padding: 24px; text-align: center; }
+  a { color: #f0a640; }
+</style>
+</head>
+<body>
+<main>
+  <p>Returning to the local Pawnch tool…</p>
+  <p><a id="back" href="http://localhost:8788/oauth/callback">Continue</a></p>
+</main>
+<script>
+  (function () {
+    var target = "http://localhost:8788/oauth/callback";
+    var src = new URLSearchParams(location.search);
+    var out = new URLSearchParams();
+    ["code", "state", "error", "error_reason", "error_description"].forEach(function (k) {
+      if (src.has(k)) out.set(k, src.get(k).split("#")[0]);
+    });
+    var url = target + (out.toString() ? "?" + out.toString() : "");
+    document.getElementById("back").href = url;
+    location.replace(url);
+  })();
+</script>
+</body>
+</html>
